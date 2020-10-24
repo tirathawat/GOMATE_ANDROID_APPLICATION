@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">GoMate</string>
+    <string name="login_with_email">Login with email</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="gomate">GoMate</string>
+    <string name="friend_for_travel">Friend for travel</string>
+    <string name="don_t_have_account">Don\'t have account?</string>
+    <string name="back"><![CDATA[<]]></string>
+    <string name="login">Login</string>
+    <string name="example_mail_com">example@mail.com</string>
+    <string name="password_hint">********</string>
+    <string name="email">email</string>
+    <string name="sign_up">Sign up</string>
+    <string name="password">password</string>
+    <string name="password">password</string>
+    <string name="next">Next</string>
 </resources>
