@@ -12,6 +12,15 @@
     <string name="email">email</string>
     <string name="sign_up">Sign up</string>
     <string name="password">password</string>
-    <string name="password">password</string>
     <string name="next">Next</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="what_s_your_name">What\'s your name?</string>
+    <string name="name">name</string>
+    <string name="how_old">How old?</string>
+    <string name="_20">20</string>
+    <string name="age">age</string>
+    <string name="phone_number">Phone number</string>
+    <string name="_66_88_888_8888">(+66) 88-888-8888</string>
 </resources>

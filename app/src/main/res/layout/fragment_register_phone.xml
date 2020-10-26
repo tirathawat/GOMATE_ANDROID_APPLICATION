@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".fragment.register.RegisterPhoneFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical" >
 
         <Button
@@ -26,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="@string/login"
+            android:text="@string/phone_number"
             android:textSize="48sp"
             android:layout_marginTop="40dp"
             android:layout_marginStart="40dp"
@@ -34,14 +33,14 @@
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_email"
+            android:id="@+id/edit_text_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:textColor="@android:color/black"
             android:fontFamily="@font/roboto_bold"
-            android:hint="@string/email"
+            android:hint="@string/_66_88_888_8888"
             android:textColorHint="@android:color/black"
             android:layout_marginTop="40dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -49,50 +48,31 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textColor="@android:color/black"
-            android:fontFamily="@font/roboto_bold"
-            android:hint="@string/password"
-            android:textColorHint="@android:color/black"
-            android:layout_marginTop="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-
-        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="bottom" >
+        android:layout_gravity="bottom">
 
         <Button
-            android:id="@+id/button_login"
+            android:id="@+id/button_next"
             android:layout_width="234dp"
             android:layout_height="40dp"
             android:background="@drawable/round_bg_blue"
-            android:text="@string/login"
+            android:text="@string/next"
             android:textSize="18sp"
             android:layout_marginBottom="100dp"
             android:textAllCaps="false"
             android:layout_gravity="center"
             android:textColor="@android:color/white"
             android:fontFamily="@font/roboto_bold" />
+
     </LinearLayout>
 
 </FrameLayout>
