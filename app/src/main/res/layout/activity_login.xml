@@ -25,12 +25,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/login"
-            android:textSize="48sp"
-            android:layout_marginTop="40dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/login"
             android:textColor="@android:color/black"
+            android:textSize="48sp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -49,7 +49,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,6 +70,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -85,14 +87,14 @@
             android:id="@+id/button_login"
             android:layout_width="234dp"
             android:layout_height="40dp"
-            android:background="@drawable/round_bg_blue"
-            android:text="@string/login"
-            android:textSize="18sp"
-            android:layout_marginBottom="100dp"
-            android:textAllCaps="false"
             android:layout_gravity="center"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/round_bg_blue"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/login"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:fontFamily="@font/roboto_bold" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 </FrameLayout>
