@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnv_home"
+        android:icon="@drawable/bnv_home_selector"
+        android:title="Home" />
+    <item
+        android:id="@+id/bnv_wallet"
+        android:icon="@drawable/bnv_wallet_selector"
+        android:title="Wallet" />
+    <item
+        android:id="@+id/bnv_chats"
+        android:icon="@drawable/bnv_message_selector"
+        android:title="Chat" />
+    <item
+        android:id="@+id/bnv_user"
+        android:icon="@drawable/bnv_profile_selector"
+        android:title="Profile" />
+</menu>
