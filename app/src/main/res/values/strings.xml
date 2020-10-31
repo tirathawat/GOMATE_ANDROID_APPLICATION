@@ -25,4 +25,6 @@
     <string name="id_card">id card</string>
     <string name="phone_number">Phone number</string>
     <string name="_66_88_888_8888">(+66) 88-888-8888</string>
+    <string name="dialog_gallery">Choose from gallery</string>
+    <string name="dialog_camera">Take a photo</string>
 </resources>
