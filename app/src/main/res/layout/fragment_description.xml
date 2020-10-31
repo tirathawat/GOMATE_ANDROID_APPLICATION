@@ -55,7 +55,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
             android:fontFamily="@font/roboto_bold"
-            android:hint="@string/suggest_location"
+            android:hint="Location"
             android:textColor="@android:color/black"
             android:focusable="false"
             android:clickable="false"

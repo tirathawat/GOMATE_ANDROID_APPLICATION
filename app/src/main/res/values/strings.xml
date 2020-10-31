@@ -49,4 +49,7 @@
     <string name="verify_account">Verify account</string>
     <string name="interesting">Interesting</string>
     <string name="sign_out">Sign out</string>
+    <string name="chat">chat</string>
+    <string name="hello">Hello</string>
+    <string name="type_a_message">Type a message</string>
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,7 +42,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         setupBannerItems();
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ViewPager2 viewPager2 = view.findViewById(R.id.tv_banner);
+        //ViewPager2 viewPager2 = view.findViewById(R.id.tv_banner);
 //        viewPager2.setAdapter(bannerAdapter);
 //
         view.findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
