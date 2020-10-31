@@ -34,6 +34,9 @@
     <string name="movie">movie</string>
     <string name="karaoke">karaoke</string>
     <string name="concert">concert</string>
+    <string name="chats">Chats</string>
+    <string name="wallet">Wallet</string>
+    <string name="profile">Profile</string>
     <string name="dialog_gallery">Choose from gallery</string>
     <string name="dialog_camera">Take a photo</string>
     <string name="suggest_location">Location</string>
