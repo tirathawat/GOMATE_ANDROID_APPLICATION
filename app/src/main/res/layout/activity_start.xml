@@ -15,31 +15,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/welcome_to"
-            android:textSize="24sp"
-            android:textColor="@android:color/black"
             android:layout_marginStart="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/welcome_to"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
             tools:layout_editor_absoluteX="87dp"
             tools:layout_editor_absoluteY="126dp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
             android:layout_marginStart="30dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/gomate"
-            android:textSize="48sp"
             android:textColor="@android:color/black"
+            android:textSize="48sp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="113dp"
             tools:layout_editor_absoluteY="181dp" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/friend_for_travel"
             android:textColor="@android:color/black"
             android:textSize="24sp"
@@ -50,14 +50,14 @@
             android:id="@+id/button_login"
             android:layout_width="234dp"
             android:layout_height="40dp"
-            android:background="@drawable/round_bg_blue"
-            android:text="@string/login_with_email"
-            android:textSize="18sp"
-            android:layout_marginTop="70dp"
-            android:textAllCaps="false"
             android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/round_bg_blue"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/login_with_email"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:fontFamily="@font/roboto_bold" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/text_sign_up"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/poppins_medium"
             android:text="@string/don_t_have_account"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
