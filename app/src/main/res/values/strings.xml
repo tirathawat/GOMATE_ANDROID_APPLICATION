@@ -35,5 +35,7 @@
     <string name="karaoke">karaoke</string>
     <string name="concert">concert</string>
     <string name="dialog_gallery">Choose from gallery</string>
-    <string name="dialog_camera">Take a photo</string>s
+    <string name="dialog_camera">Take a photo</string>
+    <string name="suggest_location">Location</string>
+    <string name="suggest_description">Description</string>
 </resources>

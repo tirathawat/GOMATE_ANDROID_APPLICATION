@@ -16,6 +16,7 @@ import com.example.gomate.fragment.home.ChatFragment;
 import com.example.gomate.fragment.home.HomeFragment;
 import com.example.gomate.fragment.home.ProfileFragment;
 import com.example.gomate.fragment.home.WalletFragment;
+import com.example.gomate.fragment.rent.DescriptionFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new ProfileFragment();
                             break;
                     }
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.home_frame, selectedFragment).commit();
                     return true;
                 }
@@ -52,12 +54,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         t = findViewById(R.id.text);
-        t.setOnClickListener(new View.OnClickListener() {
+//        t.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseAuth.getInstance().signOut();
+//                startActivity(new Intent(MainActivity.this, ValidateActivity.class));
+//                finish();
+//            }
+//        });
+        t.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, ValidateActivity.class));
-                finish();
+            public void onClick(View view) {
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_description, new DescriptionFragment()).commit();
             }
         });
 
