@@ -39,4 +39,6 @@
     <string name="profile">Profile</string>
     <string name="dialog_gallery">Choose from gallery</string>
     <string name="dialog_camera">Take a photo</string>
+    <string name="suggest_location">Major cineplex Rama II</string>
+    <string name="suggest_description">Description</string>
 </resources>
