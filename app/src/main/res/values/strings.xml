@@ -13,6 +13,7 @@
     <string name="sign_up">Sign up</string>
     <string name="password">password</string>
     <string name="next">Next</string>
+    <string name="validate_header">Verify Identification</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -21,6 +22,7 @@
     <string name="how_old">How old?</string>
     <string name="_20">20</string>
     <string name="age">age</string>
+    <string name="id_card">id card</string>
     <string name="phone_number">Phone number</string>
     <string name="_66_88_888_8888">(+66) 88-888-8888</string>
     <string name="interesting">Interesting</string>
@@ -35,4 +37,6 @@
     <string name="chats">Chats</string>
     <string name="wallet">Wallet</string>
     <string name="profile">Profile</string>
+    <string name="dialog_gallery">Choose from gallery</string>
+    <string name="dialog_camera">Take a photo</string>
 </resources>
