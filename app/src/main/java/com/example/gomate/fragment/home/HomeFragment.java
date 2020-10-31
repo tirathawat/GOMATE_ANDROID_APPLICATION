@@ -1,11 +1,14 @@
 package com.example.gomate.fragment.home;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,8 @@ import android.widget.TextView;
 import com.example.gomate.R;
 import com.example.gomate.fragment.home.adsbanner.BannerAdapter;
 import com.example.gomate.fragment.home.adsbanner.BannerItem;
+import com.example.gomate.fragment.home.typeactivity.ActivityAdapter;
+import com.example.gomate.fragment.home.typeactivity.ActivityItem;
 import com.example.gomate.fragment.register.RegisterOldFragment;
 import com.example.gomate.fragment.rent.DescriptionFragment;
 
@@ -25,6 +30,7 @@ import java.util.Objects;
 public class HomeFragment extends Fragment {
 
     private BannerAdapter bannerAdapter;
+    private List<ActivityItem> activityItems;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -34,6 +40,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        activityItems = new ArrayList<>();
+        activityItems.add(new ActivityItem("Theater", R.drawable.ic_theater));
+        activityItems.add(new ActivityItem("Dinner", R.drawable.ic_dinner));
+        activityItems.add(new ActivityItem("Shopping", R.drawable.ic_shopping));
+
     }
 
     @Override
@@ -44,19 +56,16 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         //ViewPager2 viewPager2 = view.findViewById(R.id.tv_banner);
 //        viewPager2.setAdapter(bannerAdapter);
-//
-        view.findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextFragment(view);
-            }
-        });
 
-        return  view;
+        RecyclerView activityRecycler = view.findViewById(R.id.recycler_activity);
+        activityRecycler.setAdapter(new ActivityAdapter(this.getContext(), activityItems));
+        activityRecycler.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
+
+        return view;
 
     }
 
-    private void setupBannerItems(){
+    private void setupBannerItems() {
         List<BannerItem> bannerItems = new ArrayList<>();
 
         BannerItem itemFirst = new BannerItem();
@@ -74,10 +83,4 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void nextFragment(View view){
-        DescriptionFragment descriptionFragment = new DescriptionFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.home_frame,descriptionFragment);
-        fragmentTransaction.commit();
-    }
 }
