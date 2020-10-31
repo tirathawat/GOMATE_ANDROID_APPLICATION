@@ -51,15 +51,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t = findViewById(R.id.text);
-        t.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, StartActivity.class));
-                finish();
-            }
-        });
+//        t = findViewById(R.id.text);
+//        t.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseAuth.getInstance().signOut();
+//                startActivity(new Intent(MainActivity.this, StartActivity.class));
+//                finish();
+//            }
+//        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnv_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);

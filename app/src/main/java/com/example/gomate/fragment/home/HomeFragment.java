@@ -43,9 +43,9 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         activityItems = new ArrayList<>();
-        activityItems.add(new ActivityItem("Theater",R.drawable.ic_theater));
-        activityItems.add(new ActivityItem("Dinner",R.drawable.ic_dinner));
-        activityItems.add(new ActivityItem("Shopping",R.drawable.ic_shopping));
+        activityItems.add(new ActivityItem("Theater", R.drawable.ic_theater));
+        activityItems.add(new ActivityItem("Dinner", R.drawable.ic_dinner));
+        activityItems.add(new ActivityItem("Shopping", R.drawable.ic_shopping));
 
     }
 
@@ -59,23 +59,14 @@ public class HomeFragment extends Fragment {
 //        viewPager2.setAdapter(bannerAdapter);
 
         RecyclerView activityRecycler = view.findViewById(R.id.recycler_activity);
-        activityRecycler.setAdapter(new ActivityAdapter(this.getContext(),activityItems));
-        activityRecycler.setLayoutManager(new GridLayoutManager(this.getContext(),2));
+        activityRecycler.setAdapter(new ActivityAdapter(this.getContext(), activityItems));
+        activityRecycler.setLayoutManager(new GridLayoutManager(this.getContext(), 2));
 
-
-
-        view.findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextFragment(view);
-            }
-        });
-
-        return  view;
+        return view;
 
     }
 
-    private void setupBannerItems(){
+    private void setupBannerItems() {
         List<BannerItem> bannerItems = new ArrayList<>();
 
         BannerItem itemFirst = new BannerItem();
@@ -93,10 +84,4 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void nextFragment(View view){
-            DescriptionFragment descriptionFragment = new DescriptionFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.home_frame,descriptionFragment);
-            fragmentTransaction.commit();
-    }
 }
