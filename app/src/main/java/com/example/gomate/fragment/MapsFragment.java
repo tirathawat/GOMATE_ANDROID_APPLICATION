@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.gomate.MainActivity;
 import com.example.gomate.R;
@@ -42,6 +43,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private LocationCallback locationCallBack;
     private Location currentLocation;
     private GoogleMap mMap;
+    private boolean firstTime = true;
+
+    private LatLng providerPosition = new LatLng(13.7495268118,100.491231262);
 
     @Nullable
     @Override
@@ -58,6 +62,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
@@ -79,8 +84,24 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
+                LatLng oldLatLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
                 currentLocation = locationResult.getLastLocation();
+                LatLng currentLatLng = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+                LatLng middleLatLng = new LatLng((currentLatLng.latitude + providerPosition.latitude) / 2, (currentLatLng.longitude + providerPosition.longitude) /2 );
                 Log.e("MapsActivity","Callback : " + String.valueOf(currentLocation.getLatitude()) + " " + String.valueOf(currentLocation.getLongitude()));
+                if(firstTime){
+                    firstTime = false;
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(currentLatLng).title("Me")).showInfoWindow();
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng,15));
+                    mMap.addMarker(new MarkerOptions().position(providerPosition).title("Provider"));
+                }
+                if(oldLatLng.latitude != currentLatLng.latitude || oldLatLng.longitude != currentLatLng.longitude){
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(currentLatLng).title("Me")).showInfoWindow();
+                    mMap.addMarker(new MarkerOptions().position(providerPosition).title("Provider"));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(middleLatLng,15));
+                }
             }
         };
     }
@@ -89,9 +110,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng sydney = new LatLng(-34, 151);
-        googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     @Override
