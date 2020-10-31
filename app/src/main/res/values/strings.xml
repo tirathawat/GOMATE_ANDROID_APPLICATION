@@ -25,7 +25,6 @@
     <string name="id_card">id card</string>
     <string name="phone_number">Phone number</string>
     <string name="_66_88_888_8888">(+66) 88-888-8888</string>
-    <string name="interesting">Interesting</string>
     <string name="photo_graph">photo-graph</string>
     <string name="dinner">dinner</string>
     <string name="nature">nature</string>
@@ -41,4 +40,13 @@
     <string name="dialog_camera">Take a photo</string>
     <string name="suggest_location">Major cineplex Rama II</string>
     <string name="suggest_description">Description</string>
+    <string name="button_next"><![CDATA[>]]></string>
+    <string name="major_cineplex_rama_ii">Major cineplex Rama II</string>
+    <string name="_20_00">20:00</string>
+    <string name="details">details</string>
+    <string name="time">Time</string>
+    <string name="travel_with_gomate">Travel with GoMate</string>
+    <string name="verify_account">Verify account</string>
+    <string name="interesting">Interesting</string>
+    <string name="sign_out">Sign out</string>
 </resources>

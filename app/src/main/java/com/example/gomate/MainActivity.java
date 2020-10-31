@@ -12,16 +12,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.gomate.Model.Employee;
 import com.example.gomate.fragment.home.ChatFragment;
 import com.example.gomate.fragment.home.HomeFragment;
 import com.example.gomate.fragment.home.ProfileFragment;
 import com.example.gomate.fragment.home.WalletFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView t;
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -51,15 +59,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t = findViewById(R.id.text);
-        t.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this, ValidateActivity.class));
-                finish();
-            }
-        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bnv_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);

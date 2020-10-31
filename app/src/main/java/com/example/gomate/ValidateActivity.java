@@ -3,6 +3,8 @@ package com.example.gomate;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +17,8 @@ import java.io.File;
 import android.widget.Toast;
 import android.net.Uri;
 
+import com.example.gomate.fragment.home.ProfileFragment;
+
 public class ValidateActivity extends AppCompatActivity {
 
     boolean hasCard;
@@ -26,6 +30,13 @@ public class ValidateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_validate);
         ImageView card_photo = findViewById(R.id.card_photo);
         ImageView owner_photo = findViewById(R.id.owner_photo);
+        findViewById(R.id.back_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_frame, new ProfileFragment()).commit();
+                finish();
+            }
+        });
         card_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
