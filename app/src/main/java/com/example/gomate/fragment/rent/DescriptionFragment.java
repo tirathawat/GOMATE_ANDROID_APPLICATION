@@ -1,7 +1,10 @@
 package com.example.gomate.fragment.rent;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.net.Uri;
+=======
+>>>>>>> home
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,13 +17,20 @@ import com.example.gomate.R;
 
 /**
  * A simple {@link Fragment} subclass.
+<<<<<<< HEAD
  * Activities that contain this fragment must implement the
  * {@link DescriptionFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
+=======
+>>>>>>> home
  * Use the {@link DescriptionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class DescriptionFragment extends Fragment {
+<<<<<<< HEAD
+=======
+
+>>>>>>> home
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,8 +40,11 @@ public class DescriptionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+<<<<<<< HEAD
     private OnFragmentInteractionListener mListener;
 
+=======
+>>>>>>> home
     public DescriptionFragment() {
         // Required empty public constructor
     }
@@ -69,6 +82,7 @@ public class DescriptionFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_description, container, false);
     }
+<<<<<<< HEAD
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -109,3 +123,6 @@ public class DescriptionFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 }
+=======
+}
+>>>>>>> home
