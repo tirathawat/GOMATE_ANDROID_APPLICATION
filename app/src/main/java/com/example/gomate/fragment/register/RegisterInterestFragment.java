@@ -280,6 +280,7 @@ public class RegisterInterestFragment extends Fragment {
         userData.put("Name", name);
         userData.put("Old", old);
         userData.put("Phone", phone);
+        userData.put("Approve", "false");
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
