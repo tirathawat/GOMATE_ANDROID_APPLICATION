@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=B8:50:8F:E1:3D:10:6C:FC:67:F8:28:B1:C9:AD:5E:26:28:81:2B:EB%3Bcom.example.gomate.fragment
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.example.gomate.fragment
+
+    SHA-1 certificate fingerprint:
+    B8:50:8F:E1:3D:10:6C:FC:67:F8:28:B1:C9:AD:5E:26:28:81:2B:EB
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBE5Zg0XkJR4oPoFdDzat-KJmrRKpV6jGQ</string>
+</resources>
