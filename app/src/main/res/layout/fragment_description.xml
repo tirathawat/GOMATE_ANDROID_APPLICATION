@@ -57,6 +57,8 @@
             android:fontFamily="@font/roboto_bold"
             android:hint="@string/suggest_location"
             android:textColor="@android:color/black"
+            android:focusable="false"
+            android:clickable="false"
             android:textColorHint="@color/colorGray">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -101,6 +103,5 @@
             android:textSize="18sp" />
 
     </LinearLayout>
-
 
 </FrameLayout>

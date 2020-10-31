@@ -1,14 +1,36 @@
 package com.example.gomate.fragment.rent;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.gomate.R;
+import com.example.gomate.StartActivity;
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.AutocompleteFragment;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Arrays;
+import java.util.List;
+import android.content.Intent;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +39,8 @@ import com.example.gomate.R;
  */
 public class DescriptionFragment extends Fragment {
 
+    private TextInputLayout dest;
+    private TextInputLayout description;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,6 +85,22 @@ public class DescriptionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_description, container, false);
+        View view = inflater.inflate(R.layout.fragment_description, container, false);
+        dest = view.findViewById(R.id.description_location);
+        description = view.findViewById(R.id.description_description);
+        view.findViewById(R.id.description_back_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        view.findViewById(R.id.description_next_btn).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        return view;
     }
+
 }
