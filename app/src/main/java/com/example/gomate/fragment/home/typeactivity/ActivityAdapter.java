@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
     @Override
     public void onBindViewHolder(@NonNull ActivityItemsHolder holder, int position) {
         holder.tvTitle.setText(mData.get(position).getTitle());
+        holder.imageActivity.setImageResource(mData.get(position).getImage());
     }
 
     @Override
@@ -44,11 +46,13 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
     public class ActivityItemsHolder extends RecyclerView.ViewHolder{
 
         TextView tvTitle;
+        ImageView imageActivity;
 
         public ActivityItemsHolder(@NonNull View itemView) {
             super(itemView);
 
             tvTitle = itemView.findViewById(R.id.tv_card_activity);
+            imageActivity = itemView.findViewById(R.id.iv_card_activity);
         }
     }
 }

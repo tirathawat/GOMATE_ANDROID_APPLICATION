@@ -43,9 +43,9 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         activityItems = new ArrayList<>();
-        activityItems.add(new ActivityItem("Theater"));
-        activityItems.add(new ActivityItem("Dinner"));
-        activityItems.add(new ActivityItem("Shopping"));
+        activityItems.add(new ActivityItem("Theater",R.drawable.ic_theater));
+        activityItems.add(new ActivityItem("Dinner",R.drawable.ic_dinner));
+        activityItems.add(new ActivityItem("Shopping",R.drawable.ic_shopping));
 
     }
 
@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
         RecyclerView activityRecycler = view.findViewById(R.id.recycler_activity);
         activityRecycler.setAdapter(new ActivityAdapter(this.getContext(),activityItems));
         activityRecycler.setLayoutManager(new GridLayoutManager(this.getContext(),2));
-        
+
 
 
         view.findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
