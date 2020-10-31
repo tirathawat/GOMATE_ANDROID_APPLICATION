@@ -1,6 +1,7 @@
 package com.example.gomate.fragment.home.typeactivity;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,8 +48,11 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Activi
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                args.putString("title",mData.get(position).getTitle());
                 AppCompatActivity activity = (AppCompatActivity)view.getContext();
                 DescriptionFragment descriptionFragment = new DescriptionFragment(mData.get(position).getTitle());
+                descriptionFragment.setArguments(args);
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_frame,descriptionFragment).addToBackStack(null).commit();
             }
         });

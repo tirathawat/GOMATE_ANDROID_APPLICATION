@@ -1,8 +1,10 @@
 package com.example.gomate.fragment.rent;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gomate.R;
@@ -41,6 +44,8 @@ public class DescriptionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_description, container, false);
         final TextInputLayout dest = view.findViewById(R.id.description_location);
         final TextInputLayout description = view.findViewById(R.id.description_description);
+        TextView activity = view.findViewById(R.id.description_activity);
+        activity.setText(getArguments().getString("title"));
         view.findViewById(R.id.description_back_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +72,11 @@ public class DescriptionFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public void showSelectTimeDialog(){
+        DialogFragment newFragment = new DialogFragment();
+        newFragment.show(getFragmentManager(),"time ");
     }
 
 }
