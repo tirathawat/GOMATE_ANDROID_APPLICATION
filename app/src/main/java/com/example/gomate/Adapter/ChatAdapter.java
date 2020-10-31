@@ -23,20 +23,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     private Context context;
     private List<HomeChat> chats;
-    private String imageURL;
 
     public ChatAdapter (Context context, List<HomeChat> chats) {
-        List<HomeChat> chat2 = new ArrayList<>();
-        HomeChat a = new HomeChat("a","a","a");
-        chat2.add(a);
-        this.chats = chat2 ;
+        this.chats = chats;
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.chat_adapter, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.user_item, parent, false);
         return new ViewHolder(view);
     }
 
