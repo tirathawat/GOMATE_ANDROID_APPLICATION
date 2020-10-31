@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.register.RegisterInterestFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/round_bg_white"
+            android:text="@string/back"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="35sp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/interesting"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:orientation="horizontal" >
+
+            <ToggleButton
+                android:id="@+id/button_photo"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/photo_graph"
+                android:textOn="@string/photo_graph"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                android:background="@drawable/round_bg_gray"
+                style="@android:style/Animation" />
+
+            <ToggleButton
+                android:id="@+id/button_dinner"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/dinner"
+                android:textOn="@string/dinner"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                style="@android:style/Animation"
+                android:background="@drawable/round_bg_gray"
+                android:layout_marginStart="15dp" />
+
+            <ToggleButton
+                android:id="@+id/button_nature"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/nature"
+                android:textOn="@string/nature"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                style="@android:style/Animation"
+                android:background="@drawable/round_bg_gray"
+                android:layout_marginStart="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:orientation="horizontal" >
+
+            <ToggleButton
+                android:id="@+id/button_walk"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/walk"
+                android:textOn="@string/walk"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                android:background="@drawable/round_bg_gray"
+                style="@android:style/Animation" />
+
+            <ToggleButton
+                android:id="@+id/button_shopping"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/shopping"
+                android:textOn="@string/shopping"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                style="@android:style/Animation"
+                android:background="@drawable/round_bg_gray"
+                android:layout_marginStart="15dp" />
+
+            <ToggleButton
+                android:id="@+id/button_movie"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/movie"
+                android:textOn="@string/movie"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                style="@android:style/Animation"
+                android:background="@drawable/round_bg_gray"
+                android:layout_marginStart="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:orientation="horizontal" >
+
+            <ToggleButton
+                android:id="@+id/button_karaoke"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/karaoke"
+                android:textOn="@string/karaoke"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                android:background="@drawable/round_bg_gray"
+                style="@android:style/Animation" />
+
+            <ToggleButton
+                android:id="@+id/button_concert"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:textOff="@string/concert"
+                android:textOn="@string/concert"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false"
+                style="@android:style/Animation"
+                android:background="@drawable/round_bg_gray"
+                android:layout_marginStart="15dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="234dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/round_bg_blue"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

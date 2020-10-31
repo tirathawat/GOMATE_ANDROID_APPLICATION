@@ -36,9 +36,6 @@ public class RegisterPhoneFragment extends Fragment {
     private static String name;
     private static String old;
 
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
-
     private RegisterPhoneFragment() {}
 
     static RegisterPhoneFragment registerPhoneInstance(HashMap<String, String> userData) {
@@ -104,34 +101,13 @@ public class RegisterPhoneFragment extends Fragment {
             userData.put("Name", name);
             userData.put("Old", old);
             userData.put("Phone", phone);
-            register(email, password, userData);
+            userData.put("Email", email);
+            userData.put("Password", password);
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.contentContainer, RegisterInterestFragment.registerInterestInstance(userData))
+                    .addToBackStack(null)
+                    .commit();
         }
-    }
-
-    public void register(String email, String password, final HashMap<String, String> userData) {
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                            String userId = Objects.requireNonNull(firebaseUser).getUid();
-                            databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
-                            userData.put("ID", userId);
-                            databaseReference.setValue(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                }
-                            });
-                        }
-                        else {
-                            Toast.makeText(Objects.requireNonNull(getActivity()).getBaseContext(), "Can't register with this email and password", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
     }
 }
