@@ -76,9 +76,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void nextFragment(View view){
-            DescriptionFragment descriptionFragment = new DescriptionFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.home_frame,descriptionFragment);
-            fragmentTransaction.commit();
+        DescriptionFragment descriptionFragment = new DescriptionFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.home_frame,descriptionFragment);
+        fragmentTransaction.commit();
     }
 }
