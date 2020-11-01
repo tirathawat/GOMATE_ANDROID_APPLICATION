@@ -45,6 +45,8 @@ public class HomeFragment extends Fragment {
         activityItems.add(new ActivityItem("Theater", R.drawable.ic_theater));
         activityItems.add(new ActivityItem("Dinner", R.drawable.ic_dinner));
         activityItems.add(new ActivityItem("Shopping", R.drawable.ic_shopping));
+        activityItems.add(new ActivityItem("Concert", R.drawable.concert));
+
 
     }
 
