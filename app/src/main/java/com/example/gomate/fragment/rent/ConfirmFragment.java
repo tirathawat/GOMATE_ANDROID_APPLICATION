@@ -33,6 +33,9 @@ public class ConfirmFragment extends Fragment {
         args.putString("Id", employee.getId());
         args.putString("Name", employee.getName());
         args.putString("ImageURL", employee.getImageURL());
+        args.putString("Time",data.get("Time"));
+        args.putString("TotalTime",data.get("TotalTime"));
+        Log.d("Test",data.get("TotalTime"));
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,6 +48,27 @@ public class ConfirmFragment extends Fragment {
         TextView description = view.findViewById(R.id.text_description);
         location.setText(Objects.requireNonNull(getArguments()).getString("Location"));
         description.setText(Objects.requireNonNull(getArguments()).getString("Description"));
+        TextView time = view.findViewById(R.id.text_time);
+        time.setText(getArguments().getString("Time"));
+        String totalTime_string = getArguments().getString("TotalTime");
+        Log.d("Test1234",totalTime_string);
+//        totalTime_string = totalTime_string.split(".")[0];
+        double totalTime = Double.parseDouble(totalTime_string);
+
+        final double total_gomate = totalTime*5;
+        final double total_promotion = total_gomate*0.15;
+        final double transport_price = 100;
+        final double total_price = total_gomate+total_promotion+transport_price;
+
+        TextView price_gomate = view.findViewById(R.id.text_price_gomate);
+        price_gomate.setText(String.valueOf(total_gomate));
+        TextView price_promotion = view.findViewById(R.id.text_price_promotion);
+        price_promotion.setText(String.valueOf(total_promotion));
+        TextView price_transportation = view.findViewById(R.id.text_price_transport);
+        price_transportation.setText(String.valueOf(transport_price));
+        TextView text_price_total = view.findViewById(R.id.text_price_total);
+        price_transportation.setText(String.valueOf(total_price));
+
 
         TextView gomate = view.findViewById(R.id.tv_name_gomate);
         gomate.setText(getArguments().getString("Name"));
