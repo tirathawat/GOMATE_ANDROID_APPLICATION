@@ -41,8 +41,8 @@
 
             <ImageView
                 android:id="@+id/profile"
-                android:layout_width="130sp"
-                android:layout_height="130sp"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
                 android:layout_marginStart="20dp"
                 android:src="@mipmap/ic_launcher"
                 android:contentDescription="@string/profile">
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/major_cineplex_rama_ii"
             android:textColor="@color/colorGray"
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/time"
             android:textColor="@android:color/black"
@@ -104,13 +104,127 @@
             android:textColor="@color/colorGray"
             android:textSize="18sp"
             android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/price"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/gomate"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_price_gomate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="300"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/transport"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_price_transport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="100"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/promotion"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_price_promotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="-100"
+                android:textColor="@color/colorGray"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/total"
+                android:textColor="@color/colorGray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_price_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="40dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="300"
+                android:textColor="@color/colorGray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
         <Button
             android:id="@+id/button_maps"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/round_bg_blue"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/travel_with_gomate"
