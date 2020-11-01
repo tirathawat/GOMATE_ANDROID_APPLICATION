@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -45,12 +47,24 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         final HomeChat chat = chats.get(position);
         holder.name.setText(chat.getName());
         holder.lastMessage.setText(chat.getLastMessage());
 //        holder.img.
         holder.timestamp.setText(chat.getTimeStamp());
+        holder.userId = chat.getuserId();
+
+        holder.box.findViewById(R.id.home_chat_box).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Log.d("Test",holder.userId);
+                Intent intentMessage = new Intent(context, MessageActivity.class);
+                intentMessage.putExtra("userId",holder.userId);
+                context.startActivity(intentMessage);
+
+            }
+        });
     }
 
     @Override
@@ -63,12 +77,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         TextView lastMessage;
         ImageView img;
         TextView timestamp;
+        LinearLayout box;
+        String userId;
         ViewHolder(View itemView){
             super(itemView);
             name = itemView.findViewById(R.id.chat_name);
             lastMessage = itemView.findViewById(R.id.chat_lastMessage);
             img = itemView.findViewById(R.id.chat_img);
             timestamp = itemView.findViewById(R.id.chat_timestamp);
+            box = itemView.findViewById(R.id.home_chat_box);
         }
     }
 }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -49,9 +50,6 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle("");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         button_send = findViewById(R.id.button_send);
         text_send = findViewById(R.id.text_send);
         recyclerView = findViewById(R.id.recycler_view);
@@ -70,7 +68,6 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 assert user != null;
-                Objects.requireNonNull(getSupportActionBar()).setTitle(user.getUsername());
                 readMessage(firebaseUser.getUid(), userId, user.getImageURL());
             }
 
@@ -96,6 +93,7 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("sender", sender);
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
+        hashMap.put("timestamp", "10-10-10");
         databaseReference.child("Chats").push().setValue(hashMap);
     }
 
@@ -107,8 +105,8 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chats.clear();
                 for (DataSnapshot s : snapshot.getChildren()) {
-                    Chat chat = s.getValue(Chat.class);
-                    assert chat != null;
+                    Log.d("chat", s.toString());
+                    Chat chat = new Chat(s.child("sender").getValue().toString(),s.child("receiver").getValue().toString(),s.child("message").getValue().toString(),s.child("timestamp").getValue().toString());
                     if (chat.getReceiver().equals(myId) && chat.getSender().equals(userId) || chat.getReceiver().equals(userId) && chat.getSender().equals(myId)) {
                         chats.add(chat);
                     }

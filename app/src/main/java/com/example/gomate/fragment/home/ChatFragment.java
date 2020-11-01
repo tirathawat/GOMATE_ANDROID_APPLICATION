@@ -84,10 +84,11 @@ public class ChatFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 chats = new ArrayList<>();
                 for(DataSnapshot a : dataSnapshot.getChildren()){
-                    if(a.child("sender").getValue().toString().equals(firebaseUser.getUid())||a.child("reciever").getValue().toString().equals(firebaseUser.getUid())){
+                    if(a.child("sender").getValue().toString().equals(firebaseUser.getUid())||a.child("receiver").getValue().toString().equals(firebaseUser.getUid())){
 
                         Log.d("Test1234",a.toString());
-                        String targetName = a.child("sender").getValue().toString().equals((firebaseUser.getUid()))? a.child("reciever").getValue().toString() : a.child("sender").getValue().toString();
+                        String targetName = a.child("sender").getValue().toString().equals((firebaseUser.getUid()))? a.child("receiver").getValue().toString() : a.child("sender").getValue().toString();
+                        String userId = targetName;
                         targetName = users.get(targetName);
                         boolean isFound = false;
                         Log.d("Test1234",targetName);
@@ -98,7 +99,8 @@ public class ChatFragment extends Fragment {
                             }
                         }
                         if(!isFound){
-                            HomeChat b = new HomeChat(targetName,a.child("message").getValue().toString(),"default",a.child("timestamp").getValue().toString());
+                            Log.d("Test",userId);
+                            HomeChat b = new HomeChat(targetName,a.child("message").getValue().toString(),"default",a.child("timestamp").getValue().toString(),userId);
                             chats.add(b);
                         }
                     }

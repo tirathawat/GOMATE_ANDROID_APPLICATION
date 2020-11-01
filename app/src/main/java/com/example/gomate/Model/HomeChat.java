@@ -5,14 +5,20 @@ public class HomeChat {
     private String lastMessage;
     private String imageUrl;
     private String timeStamp;
+    private String userId;
 
-    public HomeChat(String name, String lastMessage, String imageUrl, String timeStamp) {
+    public HomeChat(String name, String lastMessage, String imageUrl, String timeStamp,String userId) {
         this.name = name;
         this.lastMessage = lastMessage;
         this.imageUrl = imageUrl;
         this.timeStamp = timeStamp;
+        this.userId = userId;
     }
     public HomeChat(){}
+
+    public String getuserId(){
+        return userId;
+    }
     public String getName() {
         return name;
     }
