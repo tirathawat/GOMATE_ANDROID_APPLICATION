@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.gomate.MainActivity;
 import com.example.gomate.R;
+import com.example.gomate.fragment.home.ChatFragment;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -32,6 +33,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
@@ -65,12 +67,19 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
         TextView tvProvier =  view.findViewById(R.id.tv_name_provider);
         tvProvier.setText("Gomate: "+ provierName);
+
+        view.findViewById(R.id.btn_call_chats).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.home_frame,new ChatFragment()).commit();
+            }
+        });
+//        FloatingActionButton viewActivity = getActivity().findViewById(R.id.fab_chats);
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
