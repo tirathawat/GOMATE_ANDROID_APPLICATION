@@ -18,7 +18,7 @@ import com.example.gomate.R;
 
 import java.util.List;
 
-public class GomateAdapter extends RecyclerView.Adapter<GomateAdapter.ViewHolder> {
+public class GomateAdapter extends RecyclerView.Adapter<GomateAdapter.GomateHolder> {
     private Context context;
     private List<Employee> employees;
 
@@ -29,28 +29,15 @@ public class GomateAdapter extends RecyclerView.Adapter<GomateAdapter.ViewHolder
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.gomate_item, parent, false);
-        return new GomateAdapter.ViewHolder(view);
+    public GomateHolder onCreateViewHolder( ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.cardview_gomate, parent, false);
+        return new GomateHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Employee employee = employees.get(position);
-        if (employee.getImageURL().equals("default")) {
-            holder.profile_image.setImageResource(R.mipmap.ic_launcher);
-        }
-        else {
-            Glide.with(context).load(employee.getImageURL()).into(holder.profile_image);
-        }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, MainActivity.class);
-                intent.putExtra("employeeId", employee.getId());
-                context.startActivity(intent);
-            }
-        });
+    public void onBindViewHolder(@NonNull GomateHolder holder, int position) {
+        holder.tvName.setText(employees.get(position).getName());
+//        holder.ivProfile.setImageResource(employees.get(position).getImageURL());
     }
 
     @Override
@@ -58,12 +45,15 @@ public class GomateAdapter extends RecyclerView.Adapter<GomateAdapter.ViewHolder
         return employees.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView profile_image;
+    class GomateHolder extends RecyclerView.ViewHolder {
+        TextView tvName;
+        ImageView ivProfile;
 
-        ViewHolder(View itemView) {
-            super (itemView);
-            profile_image = itemView.findViewById(R.id.profile_image);
+        public GomateHolder(@NonNull View itemView){
+            super(itemView);
+
+            tvName = itemView.findViewById(R.id.tv_name_gomate);
+            ivProfile = itemView.findViewById(R.id.iv_gomate);
         }
     }
 }

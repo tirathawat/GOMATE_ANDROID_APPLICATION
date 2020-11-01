@@ -5,8 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.gomate.Adapter.GomateAdapter;
 import com.example.gomate.Model.Employee;
 import com.example.gomate.R;
 import com.example.gomate.fragment.register.RegisterNameFragment;
@@ -51,6 +56,16 @@ public class GomateFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        employees = new ArrayList<>();
+        readUser();
+        for(int i = 0;i < employees.size();i++){
+            Log.e("GomateFragment",employees.get(i).getName());
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final HashMap<String, String> data = new HashMap<>();
@@ -59,52 +74,50 @@ public class GomateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gomate, container, false);
         TextView text_location = view.findViewById(R.id.text_location);
         text_location.setText(data.get("Location"));
-        profile[0] = view.findViewById(R.id.profile1);
-        profile[1] = view.findViewById(R.id.profile2);
-        profile[2] = view.findViewById(R.id.profile3);
-        profile[3] = view.findViewById(R.id.profile4);
-        employees = new ArrayList<>();
-        readUser();
-        profile[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(0), data))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        profile[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(1), data))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        profile[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(2), data))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        profile[3].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(3), data))
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+
+//        profile[0].setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(0), data))
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
+//        profile[1].setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(1), data))
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
+//        profile[2].setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(2), data))
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
+//        profile[3].setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Objects.requireNonNull(getActivity()).getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.home_frame, ConfirmFragment.newInstance(employees.get(3), data))
+//                        .addToBackStack(null)
+//                        .commit();
+//            }
+//        });
+        RecyclerView gomateRecycler = view.findViewById(R.id.recycler_gomate);
+        gomateRecycler.setAdapter(new GomateAdapter(this.getContext(), employees));
+        gomateRecycler.setLayoutManager(new GridLayoutManager(this.getContext(),2));
         return view;
     }
 

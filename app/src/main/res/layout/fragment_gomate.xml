@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical" >
 
         <Button
@@ -61,55 +61,15 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_gomate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal" >
+            android:layout_height="match_parent"
+            android:padding="20dp">
 
-            <ImageView
-                android:id="@+id/profile1"
-                android:layout_width="130sp"
-                android:layout_height="130sp"
-                android:layout_marginStart="40dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/profile">
-            </ImageView>
+        </androidx.recyclerview.widget.RecyclerView>
 
-            <ImageView
-                android:id="@+id/profile2"
-                android:layout_width="130sp"
-                android:layout_height="130sp"
-                android:layout_marginStart="40dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/profile">
-            </ImageView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:id="@+id/profile3"
-                android:layout_width="130sp"
-                android:layout_height="130sp"
-                android:layout_marginStart="40dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/profile">
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/profile4"
-                android:layout_width="130sp"
-                android:layout_height="130sp"
-                android:layout_marginStart="40dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/profile">
-            </ImageView>
-        </LinearLayout>
 
 
     </LinearLayout>
