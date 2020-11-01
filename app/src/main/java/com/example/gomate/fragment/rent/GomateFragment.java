@@ -89,11 +89,13 @@ public class GomateFragment extends Fragment {
         text_location.setText(data.get("Location"));
         gomateRecycler = view.findViewById(R.id.recycler_gomate);
         String[] begin = data.get("TimeBegin").split(":");
+
         double be_hr =  Double.parseDouble(begin[0]);
         double be_mn =  Double.parseDouble(begin[1]);
         String[] end = data.get("TimeStop").split(":");
         double end_hr =  Double.parseDouble(end[0]);
         double end_mn =  Double.parseDouble(end[1]);
+        double TotalTime = end_hr - be_hr;
         String a="";
         if(be_hr<10&&be_mn<10){
             a = "0"+begin[0]+":0"+begin[1];
@@ -123,6 +125,11 @@ public class GomateFragment extends Fragment {
         }
         text_time.setText(a + "  - " + b);
         _Time = a + "  - " + b;
+        double diffHr = end_hr-be_hr;
+        double diffMn = end_mn-be_mn;
+        diffMn += (diffHr*60);
+        Log.d("Test",String.valueOf(diffMn));
+        data.put("TotalTime",String.valueOf(diffMn));
         data.put("Time",_Time);
 //        profile[0].setOnClickListener(new View.OnClickListener() {
 //            @Override
