@@ -25,7 +25,7 @@ public class ConfirmFragment extends Fragment {
 
     public ConfirmFragment() {}
 
-    static ConfirmFragment newInstance(Employee employee, HashMap<String, String> data) {
+    public static ConfirmFragment newInstance(Employee employee, HashMap<String, String> data) {
         ConfirmFragment fragment = new ConfirmFragment();
         Bundle args = new Bundle();
         args.putString("Description", data.get("Description"));

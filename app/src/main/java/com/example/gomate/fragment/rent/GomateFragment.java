@@ -44,6 +44,9 @@ public class GomateFragment extends Fragment {
     ImageView[] profile = new ImageView[4];
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
+    RecyclerView gomateRecycler;
+    HashMap<String,String> data;
+
 
     public GomateFragment() {}
 
@@ -64,16 +67,16 @@ public class GomateFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         employees = new ArrayList<>();
-        readUser();
         for(int i = 0;i < employees.size();i++){
             Log.e("GomateFragment",employees.get(i).getName());
         }
+        readUser();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final HashMap<String, String> data = new HashMap<>();
+        data = new HashMap<>();
         data.put("Location", Objects.requireNonNull(getArguments()).getString("Location"));
         data.put("Description", Objects.requireNonNull(getArguments()).getString("Description"));
         data.put("TimeBegin", Objects.requireNonNull(getArguments()).getString("TimeBegin"));
@@ -83,6 +86,7 @@ public class GomateFragment extends Fragment {
         TextView text_time = view.findViewById(R.id.text_time);
         text_time.setText(data.get("TimeBegin") + " - " + data.get("TimeStop"));
         text_location.setText(data.get("Location"));
+        gomateRecycler = view.findViewById(R.id.recycler_gomate);
 
 //        profile[0].setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -125,7 +129,7 @@ public class GomateFragment extends Fragment {
 //            }
 //        });
         RecyclerView gomateRecycler = view.findViewById(R.id.recycler_gomate);
-        gomateRecycler.setAdapter(new GomateAdapter(this.getContext(), employees));
+        gomateRecycler.setAdapter(new GomateAdapter(this.getContext(), employees, data));
         gomateRecycler.setLayoutManager(new GridLayoutManager(this.getContext(),2));
         return view;
     }
@@ -141,15 +145,23 @@ public class GomateFragment extends Fragment {
     }
 
     private void readUser() {
+        Log.d("Test","gan");
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 employees.clear();
                 for (DataSnapshot s : snapshot.getChildren()) {
-                    Employee employee = s.getValue(Employee.class);
-                    employees.add(employee);
+                    Log.d("Test",s.toString());
+                    if(s.child("isEmployee").getValue().toString().equals("true")){
+                        Employee emp = new Employee(s.getKey().toString(),s.child("Name").getValue().toString(),"default");
+                        employees.add(emp);
+
+                    }
                 }
+
+                gomateRecycler.setAdapter(new GomateAdapter(getContext(), employees, data));
+                gomateRecycler.setLayoutManager(new GridLayoutManager(getContext(),2));
             }
 
             @Override

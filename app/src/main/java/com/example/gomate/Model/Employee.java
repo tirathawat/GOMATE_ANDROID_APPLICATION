@@ -4,9 +4,13 @@ public class Employee {
     private String id;
     private String name;
     private String imageURL;
-    private boolean isEmployee;
 
-    Employee () {}
+
+    public Employee(String id, String name, String imageURL) {
+        this.id = id;
+        this.name = name;
+        this.imageURL = imageURL;
+    }
 
     public String getId() {
         return id;
@@ -30,13 +34,5 @@ public class Employee {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
-    }
-
-    public boolean isEmployee() {
-        return isEmployee;
-    }
-
-    public void setEmployee(boolean employee) {
-        isEmployee = employee;
     }
 }
