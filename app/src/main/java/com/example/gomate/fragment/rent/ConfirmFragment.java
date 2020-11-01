@@ -67,7 +67,7 @@ public class ConfirmFragment extends Fragment {
         TextView price_transportation = view.findViewById(R.id.text_price_transport);
         price_transportation.setText(String.valueOf(transport_price));
         TextView text_price_total = view.findViewById(R.id.text_price_total);
-        price_transportation.setText(String.valueOf(total_price));
+        text_price_total.setText(String.valueOf(total_price));
 
 
         TextView gomate = view.findViewById(R.id.tv_name_gomate);
@@ -76,8 +76,7 @@ public class ConfirmFragment extends Fragment {
         view.findViewById(R.id.button_maps).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Test","gan");
-                getFragmentManager().beginTransaction().replace(R.id.home_frame,new MapsFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.home_frame,new MapsFragment(getArguments().getString("Name"))).commit();
             }
         });
 

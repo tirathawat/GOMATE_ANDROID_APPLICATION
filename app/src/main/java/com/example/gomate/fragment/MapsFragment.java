@@ -44,8 +44,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private Location currentLocation;
     private GoogleMap mMap;
     private boolean firstTime = true;
+    private String provierName;
+
 
     private LatLng providerPosition = new LatLng(13.7495268118,100.491231262);
+
+    public MapsFragment(String name){
+        this.provierName = name;
+    }
 
     @Nullable
     @Override
@@ -57,6 +63,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this.getContext());
         updateGPS();
         View view = inflater.inflate(R.layout.fragment_maps, container, false);
+        TextView tvProvier =  view.findViewById(R.id.tv_name_provider);
+        tvProvier.setText("Gomate: "+ provierName);
         return view;
     }
 

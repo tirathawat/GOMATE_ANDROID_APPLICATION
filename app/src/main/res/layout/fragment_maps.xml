@@ -6,6 +6,8 @@
     <TextView
         android:id="@+id/tv_name_provider"
         android:textSize="24dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/colorBlack"
         android:fontFamily="@font/poppins_semibold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
