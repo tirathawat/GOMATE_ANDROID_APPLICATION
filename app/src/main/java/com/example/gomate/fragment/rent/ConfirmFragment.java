@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.gomate.Model.Employee;
 import com.example.gomate.R;
+import com.example.gomate.fragment.MapsFragment;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -41,7 +42,18 @@ public class ConfirmFragment extends Fragment {
         TextView description = view.findViewById(R.id.text_description);
         location.setText(Objects.requireNonNull(getArguments()).getString("Location"));
         description.setText(Objects.requireNonNull(getArguments()).getString("Description"));
+
+        view.findViewById(R.id.button_maps).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                MapsFragment mapsFragment = new MapsFragment();
+//                FragmentManager fragmentManager = getFragmentManager();
+//                fragmentManager.beginTransaction().replace(R.id.home_frame,mapsFragment).commit();
+                getFragmentManager().beginTransaction().replace(R.id.home_frame,new MapsFragment()).commit();
+            }
+        });
         return inflater.inflate(R.layout.fragment_confirm, container, false);
+
     }
 
     @Override

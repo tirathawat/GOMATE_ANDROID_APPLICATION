@@ -21,6 +21,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.HashMap;
 import java.util.Objects;
+import com.example.gomate.fragment.MapsFragment;
 
 public class DescriptionFragment extends Fragment {
 
@@ -28,7 +29,6 @@ public class DescriptionFragment extends Fragment {
 
     public DescriptionFragment(String title) {
         this.selectActivity = title;
-        Log.e("DescriptionFragment",title);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class DescriptionFragment extends Fragment {
 
             }
         });
-        view.findViewById(R.id.description_next_btn).setOnClickListener(new View.OnClickListener(){
+        view.findViewById(R.id.description_next_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String text_description = Objects.requireNonNull(description.getEditText()).getText().toString();
