@@ -29,10 +29,12 @@ import com.example.gomate.fragment.MapsFragment;
 public class DescriptionFragment extends Fragment {
 
     private String selectActivity;
-    private int hourBegin;
-    private int minutesBegin;
-    private int hourStop;
-    private int minutesStop;
+    int hourBegin;
+    int minutesBegin;
+    int hourStop;
+    int minutesStop;
+    boolean hasSetTime;
+    boolean a, b;
 
     public DescriptionFragment(String title) {
         this.selectActivity = title;
@@ -48,6 +50,7 @@ public class DescriptionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        hasSetTime = a = b = false;
         View view = inflater.inflate(R.layout.fragment_description, container, false);
         final TextInputLayout dest = view.findViewById(R.id.description_location);
         final TextInputLayout description = view.findViewById(R.id.description_description);
@@ -64,12 +67,15 @@ public class DescriptionFragment extends Fragment {
             public void onClick(View view) {
                 String text_description = Objects.requireNonNull(description.getEditText()).getText().toString();
                 String text_location = Objects.requireNonNull(dest.getEditText()).getText().toString();
-                 if (TextUtils.isEmpty(text_description) || TextUtils.isEmpty(text_location))
+                hasSetTime = a && b;
+                if (TextUtils.isEmpty(text_description) || TextUtils.isEmpty(text_location) || !hasSetTime)
                     Toast.makeText(getContext(), "All field is required", Toast.LENGTH_SHORT).show();
                 else {
                     HashMap<String, String> data = new HashMap<>();
                     data.put("Description", text_description);
                     data.put("Location", text_location);
+                    data.put("TimeBegin", hourBegin + ":" + minutesBegin);
+                    data.put("TimeStop", hourStop + ":" + minutesStop);
                     Objects.requireNonNull(getActivity()).getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.home_frame, GomateFragment.newInstance(data))
@@ -91,6 +97,9 @@ public class DescriptionFragment extends Fragment {
                         }
                         timeBegin += String.valueOf(i1);
                         etTimeBegin.setText(timeBegin);
+                        hourBegin = i;
+                        minutesBegin = i1;
+                        a = true;
                     }
                 },0,0,true);
                 timePickerDialog.show();
@@ -110,6 +119,9 @@ public class DescriptionFragment extends Fragment {
                         }
                         timeStop += String.valueOf(i1);
                         etTimeStop.setText(timeStop);
+                        hourStop = i;
+                        minutesStop = i1;
+                        b = true;
                     }
                 },0,0,true);
                 timePickerDialog.show();

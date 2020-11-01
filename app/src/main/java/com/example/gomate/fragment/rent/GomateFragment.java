@@ -1,5 +1,6 @@
 package com.example.gomate.fragment.rent;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,18 +48,25 @@ public class GomateFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString("Description", data.get("Description"));
         args.putString("Location", data.get("Location"));
+        args.putString("TimeBegin", data.get("TimeBegin"));
+        args.putString("TimeStop", data.get("TimeStop"));
         fragment.setArguments(args);
         return fragment;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final HashMap<String, String> data = new HashMap<>();
         data.put("Location", Objects.requireNonNull(getArguments()).getString("Location"));
         data.put("Description", Objects.requireNonNull(getArguments()).getString("Description"));
+        data.put("TimeBegin", Objects.requireNonNull(getArguments()).getString("TimeBegin"));
+        data.put("TimeStop", Objects.requireNonNull(getArguments()).getString("TimeStop"));
         View view = inflater.inflate(R.layout.fragment_gomate, container, false);
         TextView text_location = view.findViewById(R.id.text_location);
+        TextView text_time = view.findViewById(R.id.text_time);
+        text_time.setText(data.get("TimeBegin") + " - " + data.get("TimeStop"));
         text_location.setText(data.get("Location"));
         profile[0] = view.findViewById(R.id.profile1);
         profile[1] = view.findViewById(R.id.profile2);
