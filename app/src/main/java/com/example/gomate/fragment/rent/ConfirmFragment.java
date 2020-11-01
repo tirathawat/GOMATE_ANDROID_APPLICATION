@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.gomate.Model.Employee;
 import com.example.gomate.R;
 import com.example.gomate.fragment.MapsFragment;
+import com.example.gomate.fragment.home.ChatFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -90,7 +91,6 @@ public class ConfirmFragment extends Fragment {
 
             }
         });
-
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
