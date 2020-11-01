@@ -17,11 +17,16 @@ import com.example.gomate.R;
 import com.example.gomate.fragment.MapsFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Objects;
 
 public class ConfirmFragment extends Fragment {
+
+    FirebaseUser firebaseUser;
+    String sender, receiver;
 
     public ConfirmFragment() {}
 
@@ -49,6 +54,10 @@ public class ConfirmFragment extends Fragment {
         location.setText(Objects.requireNonNull(getArguments()).getString("Location"));
         description.setText(Objects.requireNonNull(getArguments()).getString("Description"));
         TextView time = view.findViewById(R.id.text_time);
+        receiver = getArguments().getString("Id");
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert firebaseUser != null;
+        sender = firebaseUser.getUid();
         time.setText(getArguments().getString("Time"));
         String totalTime_string = getArguments().getString("TotalTime");
         Log.d("Test1234",totalTime_string);
@@ -76,7 +85,9 @@ public class ConfirmFragment extends Fragment {
         view.findViewById(R.id.button_maps).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sendMessage(receiver, sender, "Hello, I'm your gomate! How are you doing?");
                 getFragmentManager().beginTransaction().replace(R.id.home_frame,new MapsFragment(getArguments().getString("Name"))).commit();
+
             }
         });
 
@@ -95,5 +106,15 @@ public class ConfirmFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    private void sendMessage (String sender, String receiver, String message) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("sender", sender);
+        hashMap.put("receiver", receiver);
+        hashMap.put("message", message);
+        hashMap.put("timestamp", "10-10-10");
+        databaseReference.child("Chats").push().setValue(hashMap);
     }
 }
