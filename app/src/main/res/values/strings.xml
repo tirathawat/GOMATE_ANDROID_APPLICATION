@@ -53,4 +53,8 @@
     <string name="hello">Hello</string>
     <string name="type_a_message">Type a message</string>
     <string name="to">to</string>
+    <string name="price">Price</string>
+    <string name="transport">Transportation</string>
+    <string name="total">Total</string>
+    <string name="promotion">Promotion (15%)</string>
 </resources>
