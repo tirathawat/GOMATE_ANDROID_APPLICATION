@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,13 +47,11 @@ public class ConfirmFragment extends Fragment {
         view.findViewById(R.id.button_maps).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                MapsFragment mapsFragment = new MapsFragment();
-//                FragmentManager fragmentManager = getFragmentManager();
-//                fragmentManager.beginTransaction().replace(R.id.home_frame,mapsFragment).commit();
+                Log.d("Test","gan");
                 getFragmentManager().beginTransaction().replace(R.id.home_frame,new MapsFragment()).commit();
             }
         });
-        return inflater.inflate(R.layout.fragment_confirm, container, false);
+        return view;
 
     }
 
