@@ -14,8 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.gomate.MainActivity;
 import com.example.gomate.R;
 import com.example.gomate.fragment.register.RegisterOldFragment;
 import com.google.android.material.textfield.TextInputLayout;
@@ -27,6 +29,10 @@ import com.example.gomate.fragment.MapsFragment;
 public class DescriptionFragment extends Fragment {
 
     private String selectActivity;
+    private int hourBegin;
+    private int minutesBegin;
+    private int hourStop;
+    private int minutesStop;
 
     public DescriptionFragment(String title) {
         this.selectActivity = title;
@@ -72,12 +78,45 @@ public class DescriptionFragment extends Fragment {
                 }
             }
         });
+        final TextView etTimeBegin = view.findViewById(R.id.time_begin);
+        etTimeBegin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), android.R.style.Theme_Holo_Light_Dialog,new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        String timeBegin = String.valueOf(i) + ":";
+                        if(i1 < 10){
+                            timeBegin +="0";
+                        }
+                        timeBegin += String.valueOf(i1);
+                        etTimeBegin.setText(timeBegin);
+                    }
+                },0,0,true);
+                timePickerDialog.show();
+            }
+        });
+
+        final TextView etTimeStop = view.findViewById(R.id.time_stop);
+        etTimeStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), android.R.style.Theme_Holo_Light_Dialog,new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                        String timeStop = String.valueOf(i) + ":";
+                        if(i1 < 10){
+                            timeStop +="0";
+                        }
+                        timeStop += String.valueOf(i1);
+                        etTimeStop.setText(timeStop);
+                    }
+                },0,0,true);
+                timePickerDialog.show();
+            }
+        });
         return view;
     }
 
-    public void showSelectTimeDialog(){
-        DialogFragment newFragment = new DialogFragment();
-        newFragment.show(getFragmentManager(),"time ");
-    }
 
 }
