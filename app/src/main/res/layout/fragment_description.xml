@@ -28,10 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/gomate"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="36sp"
             android:textStyle="bold" />
 
         <TextView
@@ -40,10 +40,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Activity..."
             android:textColor="@color/colorGray"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -56,7 +56,7 @@
             android:layout_marginRight="40dp"
             android:clickable="false"
             android:focusable="false"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/poppins_regular"
             android:hint="Location"
             android:textColor="@android:color/black"
             android:textColorHint="@color/colorGray">
@@ -64,6 +64,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,7 +77,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/poppins_regular"
             android:hint="@string/suggest_description"
             android:textColor="@android:color/black"
             android:textColorHint="@color/colorGray">
@@ -84,15 +85,16 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_regular"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="20dp"
+            android:textSize="24sp"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/colorBlack"
             android:id="@+id/textView3"
             android:layout_width="match_parent"
@@ -102,6 +104,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <TextView
@@ -111,15 +114,19 @@
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text="Time Begin"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
                 android:layout_weight="1" />
 
             <TextView
-                android:fontFamily="@font/poppins_medium"
+                android:fontFamily="@font/poppins_regular"
                 android:textColor="@color/colorGray"
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="18sp"
                 android:gravity="center"
                 android:text="@string/to" />
 
@@ -131,6 +138,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Time Stop"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/poppins_semibold"
                 />
 
         </LinearLayout>
@@ -140,7 +150,7 @@
             android:layout_width="234dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="100dp"
             android:background="@drawable/round_bg_blue"
             android:fontFamily="@font/roboto_bold"

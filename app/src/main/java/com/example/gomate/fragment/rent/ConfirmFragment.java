@@ -46,6 +46,9 @@ public class ConfirmFragment extends Fragment {
         location.setText(Objects.requireNonNull(getArguments()).getString("Location"));
         description.setText(Objects.requireNonNull(getArguments()).getString("Description"));
 
+        TextView gomate = view.findViewById(R.id.tv_name_gomate);
+        gomate.setText(getArguments().getString("Name"));
+
         view.findViewById(R.id.button_maps).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +56,9 @@ public class ConfirmFragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.home_frame,new MapsFragment()).commit();
             }
         });
+
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         return view;
 

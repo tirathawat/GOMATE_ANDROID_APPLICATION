@@ -16,6 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorWhite"
+        android:isScrollContainer="false"
         app:menu="@menu/bottom_nav" >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
