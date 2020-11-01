@@ -40,6 +40,7 @@ import java.util.Objects;
 
 public class GomateFragment extends Fragment {
 
+    private String _Time;
     private List<Employee> employees;
     ImageView[] profile = new ImageView[4];
     DatabaseReference databaseReference;
@@ -84,10 +85,45 @@ public class GomateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gomate, container, false);
         TextView text_location = view.findViewById(R.id.text_location);
         TextView text_time = view.findViewById(R.id.text_time);
-        text_time.setText(data.get("TimeBegin") + " - " + data.get("TimeStop"));
+        Log.d("Test",data.get("TimeBegin"));
         text_location.setText(data.get("Location"));
         gomateRecycler = view.findViewById(R.id.recycler_gomate);
+        String[] begin = data.get("TimeBegin").split(":");
+        double be_hr =  Double.parseDouble(begin[0]);
+        double be_mn =  Double.parseDouble(begin[1]);
+        String[] end = data.get("TimeStop").split(":");
+        double end_hr =  Double.parseDouble(end[0]);
+        double end_mn =  Double.parseDouble(end[1]);
+        String a="";
+        if(be_hr<10&&be_mn<10){
+            a = "0"+begin[0]+":0"+begin[1];
+        }
+        else if(be_hr<10){
+            a = "0"+begin[0]+":"+begin[1];
+        }
+        else if(be_mn<10){
+            a = begin[0]+":0"+begin[1];
+        }
+        else {
+            a = begin[0]+":"+begin[1];
+        }
 
+        String b="";
+        if(end_hr<10&&end_mn<10){
+            b = "0"+end[0]+":0"+end[1];
+        }
+        else if(end_hr<10){
+            b = "0"+end[0]+":"+end[1];
+        }
+        else if(end_mn<10){
+            b = end[0]+":0"+end[1];
+        }
+        else {
+            b = end[0]+":"+end[1];
+        }
+        text_time.setText(a + "  - " + b);
+        _Time = a + "  - " + b;
+        data.put("Time",_Time);
 //        profile[0].setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

@@ -33,6 +33,7 @@ public class ConfirmFragment extends Fragment {
         args.putString("Id", employee.getId());
         args.putString("Name", employee.getName());
         args.putString("ImageURL", employee.getImageURL());
+        args.putString("Time",data.get("Time"));
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,7 +46,8 @@ public class ConfirmFragment extends Fragment {
         TextView description = view.findViewById(R.id.text_description);
         location.setText(Objects.requireNonNull(getArguments()).getString("Location"));
         description.setText(Objects.requireNonNull(getArguments()).getString("Description"));
-
+        TextView time = view.findViewById(R.id.text_time);
+        time.setText(getArguments().getString("Time"));
         view.findViewById(R.id.button_maps).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
